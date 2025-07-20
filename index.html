@@ -3,109 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proejct</title>
-    <style>
-        h1{
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 45px;
-
-}
-
-p{
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-}
-
-.boxes{
-    height: 100px;
-    width: 100px;
-    margin: 10px;
-    border: 5px solid black;
-
-}
-
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 40vh;
-    flex-wrap: wrap;
-
-}
-
-#id1{
-    background-color: yellow;
-}
-#id2{
-    background-color: red;
-}
-#id3{
-    background-color: green;
-}
-#id4{
-    background-color: orange;
-}
-#id5{
-    background-color: skyblue;
-}
-#id6{
-    background-color: rgba(252, 0, 210, 0.816);
-}
-
-    </style>
+    <title>Project</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+    h1{
+        font-family: "Roboto", sans-serif;
+        font-size: 25px;
+        text-align: center;
+        background-color: grey;
+        color: white;
+        padding: 5px;
+    }
+    .colorSwacher{
+        font-size: 18px;
+        font-family: "Roboto", sans-serif;
+        text-align: center;
+        background-color: rgb(234, 41, 41);
+        color: white;
+        padding: 5px;
+        width: 100%;
+        border: 2px solid rgb(0, 0, 0);
+    }
+    .BmiCalc{
+        font-size: 18px;
+        font-family: "Roboto", sans-serif;
+        text-align: center;
+        background-color: rgb(198, 235, 11);
+        color: rgb(0, 0, 0);
+        padding: 5px;
+        width: 100%;
+        border: 2px solid rgb(0, 0, 0);
+    }
+    div{
+        padding-top: 10px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        gap: 10px;
+    }
+    a{
+        text-decoration: none;
+        width: 100VW;
+    }
+</style>
 </head>
 <body>
-    <h1>Color Swacher</h1>
-    <p>touch any color and see background</p>
-    <div class=" container">
-    <div class="boxes" id="id1"></div>
-    <div class="boxes" id="id2"></div>
-    <div class="boxes" id="id3"></div>
-    <div class="boxes" id="id4"></div>
-    <div class="boxes" id="id5"></div>
-    <div class="boxes" id="id6"></div>
+    <h1>My Project</h1>
+    <div>
+        <a href="#"><h2 class="colorSwacher">Color Swacher</h2></a>
+        <a href="#"><h2 class="BmiCalc">Bmi Calculator</h2></a>
     </div>
-    <script>
-        const boxes = document.querySelectorAll('.boxes');
-        const body = document.querySelector('body');
-
-        boxes.forEach((box) => {
-            box.addEventListener('click', function(horizon) {
-            console.log(horizon);
-            console.log(horizon.target);
-            if (horizon.target.id === 'id1') {
-                body.style.backgroundColor = "yellow";
-                
-            }
-            if (horizon.target.id === 'id2') {
-                body.style.backgroundColor = "red";
-                
-            }
-            if (horizon.target.id === 'id3') {
-                body.style.backgroundColor = "green";
-                
-            }
-            if (horizon.target.id === 'id4') {
-                body.style.backgroundColor = "orange";
-                
-            }
-            if (horizon.target.id === 'id5') {
-                body.style.backgroundColor = "skyblue";
-                
-            }
-            if (horizon.target.id === 'id6') {
-                body.style.backgroundColor = "rgb(252, 0, 210, 0.816)";
-                
-            }
-            })
-            
-        });
-    </script>
 </body>
 </html>
