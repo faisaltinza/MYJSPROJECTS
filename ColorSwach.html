@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Swacher</title>
+    <style>
+        h1{
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 45px;
+
+}
+
+p{
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+.boxes{
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    border: 5px solid black;
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 40vh;
+    flex-wrap: wrap;
+
+}
+
+#id1{
+    background-color: yellow;
+}
+#id2{
+    background-color: red;
+}
+#id3{
+    background-color: green;
+}
+#id4{
+    background-color: orange;
+}
+#id5{
+    background-color: skyblue;
+}
+#id6{
+    background-color: rgba(252, 0, 210, 0.816);
+}
+a{
+    text-decoration: none;
+    width: 100vw;
+}
+#Home{
+    background-color: black;
+    color: aliceblue;
+    padding: 5px;
+    font-family: "Roboto";
+    font-size: 20px;
+    text-align: center;
+}
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="https://faisaltinza.github.io/MYJSPROJECTS/"><DIV id="Home">Home</DIV></a>
+    <h1>Color Swacher</h1>
+    <p>touch any color and see background</p>
+    <span class=" container">
+    <span class="boxes" id="id1"></span>
+    <span class="boxes" id="id2"></span>
+    <span class="boxes" id="id3"></span>
+    <span class="boxes" id="id4"></span>
+    <span class="boxes" id="id5"></span>
+    <span class="boxes" id="id6"></span>
+    </span>
+    <script>
+        const boxes = document.querySelectorAll('.boxes');
+        const body = document.querySelector('body');
+
+        boxes.forEach((box) => {
+            box.addEventListener('click', function(horizon) {
+            console.log(horizon);
+            console.log(horizon.target);
+
+        
+            switch (true) {
+                case horizon.target.id === 'id1':
+                    body.style.backgroundColor = "yellow";
+                    
+                    break;
+                case horizon.target.id === 'id2':
+                    body.style.backgroundColor = "red";
+                    
+                    break;
+                case horizon.target.id === 'id3':
+                    body.style.backgroundColor = "green";
+                    
+                    break;
+                case horizon.target.id === 'id4':
+                    body.style.backgroundColor = "orange";
+                    
+                    break;
+                case horizon.target.id === 'id5':
+                    body.style.backgroundColor = "skyblue";
+                    
+                    break;
+                case horizon.target.id === 'id6':
+                    body.style.backgroundColor = "rgb(252, 0, 210, 0.816)";
+                    
+                    break;
+
+            
+            }
+            // if (horizon.target.id === 'id1') {
+            //     body.style.backgroundColor = "yellow";
+                
+            // }
+            // if (horizon.target.id === 'id2') {
+            //     body.style.backgroundColor = "red";
+                
+            // }
+            // if (horizon.target.id === 'id3') {
+            //     body.style.backgroundColor = "green";
+                
+            // }
+            // if (horizon.target.id === 'id4') {
+            //     body.style.backgroundColor = "orange";
+                
+            // }
+            // if (horizon.target.id === 'id5') {
+            //     body.style.backgroundColor = "skyblue";
+                
+            // }
+            // if (horizon.target.id === 'id6') {
+            //     body.style.backgroundColor = "rgb(252, 0, 210, 0.816)";
+                
+            // }
+            })
+            
+        });
+    
+    </script>
+</body>
+</html>
