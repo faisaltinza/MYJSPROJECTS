@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        #Home{
+    background-color: black;
+    color: aliceblue;
+    padding: 5px;
+    font-family: "Roboto";
+    font-size: 20px;
+    text-align: center;
+}
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.center{
+    height: 90vh;
+    width: 100vw;
+    font-family: "Roboto";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    gap: 10px;
+}
+.clock{
+    background-color: rgb(241, 116, 27);
+    padding: 10px;
+    border-radius: 10px;
+    /* height:40px ;
+    width: 80px; */
+    text-align: center;
+    align-content: center;
+    font-size: 25px;
+}
+body{
+    background-color: rgb(50, 50, 50);
+}
+    </style>
+</head>
+<body>
+    <a href="https://faisaltinza.github.io/MYJSPROJECTS/" style="text-decoration: none;"><DIV id="Home">Home</DIV></a>
+    <div class="center">
+        <div id="banner"><Span>Your Local Time</Span></div>
+        <div class="clock">me</div>
+    </div>
+    
+    <script>
+        const time = document.querySelector(".clock")
+        // const time = document.getElementsByClassName('clock')
+        
+        
+        setInterval(function(){
+            let date = new Date();
+            console.log(date.toLocaleTimeString());
+            const ct = date.toLocaleTimeString();
+            time.innerHTML= ct},1
+        )
+        
+    </script>
+</body>
+</html>
