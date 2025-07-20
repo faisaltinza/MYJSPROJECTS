@@ -62,7 +62,7 @@ body{
         setInterval(function(){
             let date = new Date();
             console.log(date.toLocaleTimeString());
-            const ct = date.toLocaleTimeString();
+            const ct = date.toLocaleTimeString('en-US',{hour12: true});
             time.innerHTML= ct},1
         )
         
