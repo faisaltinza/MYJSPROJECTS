@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bmi Calculator</title>
+    <style>
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: grey;
+        margin-top: 0;
+    }
+        h1{
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 35px;
+}
+p{
+    /* text-align: center; */
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+button{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+
+}
+h3{
+    font-family: "roboto", sans-serif;
+    font-size: 20px;
+}
+div{
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+    margin-top: 10px;
+    font-weight: 800;
+    }
+#result{
+    color: white;
+}
+#Home{
+    background-color: black;
+    color: aliceblue;
+    padding: 5px;
+    font-family: "Roboto";
+    font-size: 20px;
+    text-align: center;
+    width: 100vw;
+    margin-top: 0;
+
+}
+a{
+    text-decoration: none;
+}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="https://faisaltinza.github.io/MYJSPROJECTS/"><DIV id="Home">Home</DIV></a>
+    <h1>Color Swacher</h1>
+    <h1>BMI Calculator</h1>
+    <form action="">
+        <p> <label>Height in cm </label> <input type="text" id="Height"> </p>
+        <p> <label>Weight in kg </label> <input type="text" id="Weight"> </p>
+        <button>Calculate</button>
+        <div id="result"></div>
+        <div id="weight_guide">
+            <h3>Bmi Weight Guide</h3>
+            <p>Under Weight = less then 18.6</p>
+            <p>Normal = 18.6 to 24.9</p>
+            <p>OverWeight = Greater then 24.9</p>
+        </div>
+    </form>
+    <script>
+        const form = document.querySelector('form')
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            const Height = parseInt(document.getElementById('Height').value);
+            const Weight = parseInt(document.getElementById('Weight').value);
+            const Result = document.getElementById('result')
+
+            if(Height === '' || Height <= 0 || isNaN(Height)){
+                Result.innerText = `Please enter valid numbers for height`
+            } else if(Weight === '' || Weight <= 0 || isNaN(Weight)){
+                Result.innerText = `Please enter valid numbers for Weight`
+            }
+            else{
+               const BMI =(Weight / ((Height * Height) / 10000));
+               let Summary = "";
+               if(BMI < 18.6){
+                Summary = "Under Weight";
+               }else if (BMI >= 18.6 && BMI <= 24.9){
+                Summary = "Normal";
+               }else{
+                Summary = "Over Weight";
+               }
+                Result.innerText = `Your BMI is ${BMI.toFixed(2)} you are ${Summary}`;
+            }
+        })
+    </script>
+</body>
+</html>
