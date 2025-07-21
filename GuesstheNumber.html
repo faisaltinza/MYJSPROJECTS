@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+#Home{
+    background-color: black;
+    color: aliceblue;
+    padding: 5px;
+    font-family: "Roboto";
+    font-size: 20px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    width: 100vw;
+}
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+.heading{
+    width: 100vw;
+    background-color: rgb(205, 208, 0);
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+.desc{
+    background-color: aqua;
+    text-align: center;
+    padding: 2px;
+}
+form{
+    background-color: rgb(68, 68, 70);
+    height: 85vh;
+    width: 100vw;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.odds{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: aliceblue;
+    width: 100vw;
+}
+.label{
+    font-size: 16px;
+}
+input{
+    font-family: "Roboto";
+    font-size: 16px;
+    background-color: black;
+    color: aliceblue;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    text-align: center;
+}
+#submt{
+    text-align: center;
+    border: 2px;
+    border-style: solid;
+    border-color: aqua;
+    font-size: 20px;
+    padding: 10px;
+    display: block;
+    color: aqua;
+}
+label{
+    color: aliceblue;
+    font-size: 20px;
+}
+.indicate{
+    color: aliceblue;
+}
+#newGame{
+    background-color: chocolate;
+    color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+}
+    </style>
+</head>
+<body>
+    <a href="https://faisaltinza.github.io/MYJSPROJECTS/"><DIV id="Home">Home</DIV></a>
+    <span class="heading">Number Guessing Game</span>
+    <form>
+        <p class="desc">Try and Guess the random number between 1 to 100</p>
+        <p class="desc">You have 10 attempts to guess the right number</p>
+        <div>
+            <label for="Guess the number">Guess the number</label>
+        <input type="text" id="input">
+        <input type="submit" id="submt">
+        <div class="odds">
+            <span class="lebel">Previous guess : <span class="GuessSlot"></span></span>
+            
+            <span class="lebel">Guess remaining : <span class="RemainGues">10</span></span>
+            <p class="indicate"></p>
+            
+            
+        </div>
+        </div>
+        
+    </form>
+
+    <script>
+        let RandomNumber = parseInt(Math.random() * 100 +1);
+
+        const submit = document.querySelector('#submt');
+        const userInput = document.querySelector("#input");
+        const PrevGuess = document.querySelector('.GuessSlot')
+        const remainGuess = document.querySelector('.RemainGues')
+        const loworhi = document.querySelector('.indicate')
+        const odds = document.querySelector('.odds')
+
+        const p = document.createElement('p')
+
+        let prevNumber = []
+        let numberofGues = 0
+
+        let playGame = true
+
+        if (playGame) {
+            submit.addEventListener('click', function (e) {
+                e.preventDefault()
+                const guess = parseInt(userInput.value)
+                validateGuess(guess)
+                console.log(guess);
+                console.log(RandomNumber);
+                
+                
+            })
+        }
+
+        function validateGuess (guess) {
+            if (isNaN(guess)) {
+                alert('please enter a valid number')
+            } else if (guess < 1) {
+                alert('value is less then 1 error')
+            } else if (guess > 100) {
+                alert('value is bigger then 100 error')
+            } else { prevNumber.push(guess)
+                if (numberofGues === 9) {
+                    displayGuess(guess)//later
+                    displayMessage(`Game Over Random Number is ${RandomNumber}`)
+                    endGame()
+                } else{
+                    displayGuess(guess)
+                    checkGuess(guess)
+
+                }
+
+            }
+        } //for validation
+
+        function checkGuess (guess) {
+            if (guess===RandomNumber) {
+                displayMessage(`Welldone You Guessed it Right`)
+                endGame()
+                }
+                else if (guess < RandomNumber) {
+                    displayMessage('Number is very low')
+                }
+                else if (guess > RandomNumber) {
+                    displayMessage('Number is very High')
+                }
+        }//here we chek
+
+        function displayGuess (guess) {
+            userInput.value = '';
+            PrevGuess.innerHTML += `${guess}, `;
+            numberofGues++;
+            remainGuess.innerHTML = `${10 - numberofGues}`
+
+        }//update values
+
+        function displayMessage (message) {
+            loworhi.innerHTML = `<h2>${message}</h2>`
+        }//intract with dom
+        
+         function endGame () {
+            userInput.value = ''
+            userInput.setAttribute('disabled','')
+            p.classList.add('button')
+            p.innerHTML='<h2 id="newGame">Start New Game</h2>'
+            odds.appendChild(p)
+            playGame = false
+            newGame()
+        }
+
+        function newGame () {
+            const btn = document.querySelector('#newGame')
+            btn.addEventListener('click', function (e) {
+                RandomNumber= parseInt(Math.random() * 100 +1);
+                prevNumber = []
+                numberofGues = 0
+                PrevGuess.innerHTML = ''
+                remainGuess.innerHTML = `${10 - numberofGues}`
+                userInput.removeAttribute('disabled','')
+                odds.removeChild(p)
+                loworhi.innerHTML=""
+                playGame=true
+            })
+        }
+       
+
+    </script>
+</body>
+</html>
