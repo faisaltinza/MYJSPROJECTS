@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .body{
+            
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Roboto';
+        }
+        #section{
+            height: 80vh;
+        }
+        button{
+            padding: 5px 100px;
+            font-size: 20px;
+            border-radius: 20px;
+
+        }
+        .section{
+            background-color: darkslategrey;
+            height: calc(100vh - 34px);
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-direction: column;
+        }
+        h1{
+            font-size: 25px;
+            max-width: 600px;
+            text-align: center;
+            font-weight: 900;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="https://faisaltinza.github.io/MYJSPROJECTS/" style="text-decoration:none;"><DIV id="Home" style="background-color: black; color: aliceblue;padding:5px;text-align: center; text-decoration: none;font-size: 20px; font-family:'Roboto';">Home</DIV></a>
+    <div class="section">
+        <h1>In click on start button and you see unlimted colors and stop to stuck on that color</h1>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </div>
+    <script>
+        let bgColor = document.querySelector('.section')
+        const Start = document.getElementById('start')
+        const Stop = document.getElementById('stop')
+
+        //generate a random color
+
+        const randomColor = function () {
+        const hexDigit = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += hexDigit[Math.floor(Math.random() * 16)]
+            }return color
+        }
+        console.log(randomColor());
+
+        let myStartPoint = null;
+
+        const Changecolor = function () {
+            bgColor.style.backgroundColor=randomColor()
+        }
+
+
+        const StartColor = function() {
+            if(myStartPoint === null){
+            myStartPoint = setInterval(Changecolor,1000);
+        }}
+        const StopColor = function(){
+            clearInterval(myStartPoint)
+            myStartPoint = null
+        }
+        
+
+
+
+        Start.addEventListener('click',()=>{StartColor();console.log('start')})
+        Stop.addEventListener('click',()=>{StopColor(); console.log('stop');})
+
+        
+        
+        
+
+
+    </script>
+</body>
+</html>
