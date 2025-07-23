@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard key</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: "Roboto";
+        }
+        #main{
+            display: flex;
+            width: 100vw;
+            height: calc(100vh - 72.4px);
+            background-color: rgb(41, 41, 41);
+            color: aliceblue;
+            align-items: center;
+            justify-content: center;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://faisaltinza.github.io/MYJSPROJECTS/" style="text-decoration:none;"><DIV id="Home" style="background-color: black; color: aliceblue;padding:5px;text-align: center; text-decoration: none;font-size: 20px; font-family:'Roboto';">Home</DIV></a>
+    <h1 id="Output">Press any key on keyboard</h1>
+    <div id="main">
+        
+    </div>
+  
+    <script>
+    window.addEventListener('keydown',(e)=>{document.querySelector('#main').innerHTML=`<table border="table">
+     <tr>
+      <th>Key</th>
+      <th>KeyCode</th>
+      <th>code</th>
+     </tr>
+
+     <tr>
+      <td>${e.key === ' ' ? "Space": e.key}</td>
+      <td>${e.keyCode}</td>
+      <td>${e.code}</td>
+     </tr>
+  </table>`})
+    </script>
+</body>
+</html>
