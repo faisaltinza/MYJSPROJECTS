@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+body{
+  background-color: #ededed;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Google Sans Code", monospace;
+}
+.main{
+  background-color: #e8e8e8;
+  padding: 20px;
+  max-width: 400px;
+  margin:auto;
+  border: 2px solid #d3d3d3;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  margin-top: 40px;
+  }
+#display{
+  width: 100%;
+  padding: 10px;
+  font-size: 24px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3) inset;
+  }
+.buttonbox{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+button{
+  padding: 10px;
+  font-size: 24px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+button:hover{
+  background-color: #c1c1c1;
+}
+.clear{
+  background-color: #ff4136;
+  color: #ffffff;
+}
+.number{
+  background-color: #ffffff;
+}
+.oprator{
+  background-color: #0074d9;
+  color: #ffffff;
+}
+.equal{
+  background-color: #21d872;
+  grid-row: span 3;
+  color: #ffffff;
+}
