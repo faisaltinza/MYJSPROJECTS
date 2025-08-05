@@ -17,7 +17,8 @@ body{
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   border-radius: 5px;
   margin-top: 40px;
-  }
+
+}
 #display{
   width: 100%;
   padding: 10px;
@@ -30,6 +31,7 @@ body{
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   margin-top: 20px;
+  height: calc(100vh - 200px);
 }
 button{
   padding: 10px;
