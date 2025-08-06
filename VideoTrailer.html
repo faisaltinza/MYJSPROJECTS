@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video Trailer Popup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #212121;
+            width: 100%;
+            height: 100%;
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 600px;
+            padding: 0px 20px;
+        }
+        .trailerpop{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: #171717;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.7s;
+        }
+        .active.trailerpop{
+            visibility:hidden;
+            opacity: 0;
+        }
+        .trailerpop video{
+            position: relative;
+            max-width: 900px;
+            outline: none;
+            width: 100%;
+        }
+        .main img{
+            width: 100%;
+        }
+        .btn{
+            background-color: #c5c5c5;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+        }
+        .btn:hover{
+            background-color: #ec8029;
+        }
+        .closeicon{
+            color: #dddddd;
+            position: absolute;
+            top: 30px;
+            right: 20px;
+        }
+        h2{
+            color: white;
+            font-size: 2rem;
+        }
+        p{
+            color: #c3c3c3;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+<a href="https://faisaltinza.github.io/MYJSPROJECTS/" style="width:100%;text-decoration:none"><DIV id="Home" style="background-color: black; color: aliceblue; padding:5px;text-align: center; text-decoration: none;font-size: 20px; font-family:'Roboto';">Home</DIV>
+</a>
+<div class="main">
+    <img width="800" src="https://images.pexels.com/photos/2161467/pexels-photo-2161467.jpeg" alt="movie image">
+    <h2>Movie Title</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet cumque cupiditate dolor ea esse facilis, fuga ipsum iste labore laudantium modi natus neque nesciunt nihil non nostrum nulla obcaecati pariatur possimus quaerat quas quasi qui quia ratione recusandae rem saepe temporibus ut voluptas! Autem deleniti eaque obcaecati quaerat quasi.</p>
+    <button class="btn">Watch now</button>
+</div>
+<div class="trailerpop active">
+    <video width="800" src="https://videos.pexels.com/video-files/3121327/3121327-uhd_2560_1440_24fps.mp4" controls ></video>
+    <i class="fa-solid fa-xmark fa-2x closeicon"></i>
+</div>
+<script>
+    const btnEl = document.getElementsByClassName(('btn'))[0]
+    const closeEl = document.getElementsByClassName('closeicon')[0]
+    const trailerEl = document.querySelector('.trailerpop')
+    const videoEl = document.querySelector('video')
+
+    btnEl.addEventListener('click', ()=>{trailerEl.classList.remove('active')})
+    closeEl.addEventListener('click', ()=>{trailerEl.classList.add('active');videoEl.currentTime = 0})
+</script>
+</body>
+</html>
