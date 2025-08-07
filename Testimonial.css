@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+img{
+    width: 100px;
+    border-radius: 100px;
+    position: absolute;
+    top: -50px;
+}
+#tesimonialcard{
+    background-color: #0074d9;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 100px auto;
+    position: relative;
+    border-radius: 10px;
+}
+#text{
+    color: #e8e8e8;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+}
+#username{
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center;
+}
